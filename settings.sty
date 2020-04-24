@@ -7,13 +7,13 @@
 \usepackage{ifxetex,ifluatex}
 \newif\ifxetexorluatex
 \ifxetex
-	\xetexorluatextrue
+  \xetexorluatextrue
 \else
-	\ifluatex
-		\xetexorluatextrue
-	\else
-		\xetexorluatexfalse
-	\fi
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
 \fi
 
 \setlength\subrubricbeforespace{15pt}
@@ -57,11 +57,11 @@
 \setlength{\subrubricspace}{3pt}
 \setlength{\subrubricbeforespace}{4pt}
 \def\@@rubrichead#1{%
-	\begin{tikzpicture}[baseline]%\
-	\shade[left color=SwishLineColour!60!white, right color=white] rectangle (\@almosttextwidth,2.5pt);
-	\node[font={\@rubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.5ex,text height=1.5ex] at (1pt,2pt) {#1};
-	\end{tikzpicture}%
-	\vspace\rubricspace%
+  \begin{tikzpicture}[baseline]%\
+  \shade[left color=SwishLineColour!60!white, right color=white] rectangle (\@almosttextwidth,2.5pt);
+  \node[font={\@rubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.5ex,text height=1.5ex] at (1pt,2pt) {#1};
+  \end{tikzpicture}%
+  \vspace\rubricspace%
 }
 
 \subrubricfont{\large\bfseries\sffamily\color{RubricColour}}
@@ -80,16 +80,16 @@
 \def\@prefixmarker{\relscale{.9}\faChevronRight}
 
 \prefix{%
-	\hspace*{-1ex}
-	\color{MarkerColour!80!black}\@prefixmarker%
-	\hspace*{1ex}%
+  \hspace*{-1ex}
+  \color{MarkerColour!80!black}\@prefixmarker%
+  \hspace*{1ex}%
 }
 
 \newcommand{\myprefix}[1]{%
 \prefix{%
-	\hspace*{-1ex}
-	\color{MarkerColour!80!black}\relscale{.9}#1
-	\hspace*{1ex}%
+  \hspace*{-1ex}
+  \color{MarkerColour!80!black}\relscale{.9}#1
+  \hspace*{1ex}%
 }}
 
 \newcommand{\rangedentry}[2]{%
@@ -132,14 +132,14 @@
 \renewcommand{\textbf}[1]{\textcolor{RubricColour}{\oldtextbf{#1}}}
 
 \renewcommand{\@listI}{%
-	\leftmargin=25pt
-	\rightmargin=0pt
-	\labelsep=5pt
-	\labelwidth=20pt
-	\itemindent=0pt
-	\listparindent=0pt
-	\topsep=0pt plus 2pt minus 4pt  % space before a list
-	\partopsep=0pt plus 1pt minus 1pt
-	\parsep=0pt plus 1pt
-	\itemsep=\parsep
+  \leftmargin=25pt
+  \rightmargin=0pt
+  \labelsep=5pt
+  \labelwidth=20pt
+  \itemindent=0pt
+  \listparindent=0pt
+  \topsep=0pt plus 2pt minus 4pt  % space before a list
+  \partopsep=0pt plus 1pt minus 1pt
+  \parsep=0pt plus 1pt
+  \itemsep=\parsep
 }
