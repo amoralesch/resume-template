@@ -1,7 +1,8 @@
 # Resume Template
 
 This is a skeleton of the current template that I use for my resume.
-It builds on top of the example in _TBU_.
+It builds on top of the example in
+[here](https://www.overleaf.com/latex/templates/a-customised-curve-cv/mvmbhkwsnmwv).
 
 It is written in LaTex and uses the following packages:
 
@@ -17,7 +18,6 @@ It is written in LaTex and uses the following packages:
 * [relsize](https://ctan.org/pkg/relsize);
 * [xcolor](https://ctan.org/pkg/xcolor);
 * [pgf](https://ctan.org/pkg/pgf), previously `tikz`;
-* _TBU_.
 
 ## Make it your own
 
