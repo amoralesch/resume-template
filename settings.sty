@@ -1,0 +1,145 @@
+% To avoid annoying warnings when compiling
+\RequirePackage{silence}
+\WarningsOff[longtable]
+\WarningsOff[array]
+
+% To differentiate between the compilator use.
+\usepackage{ifxetex,ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+	\xetexorluatextrue
+\else
+	\ifluatex
+		\xetexorluatextrue
+	\else
+		\xetexorluatexfalse
+	\fi
+\fi
+
+\setlength\subrubricbeforespace{15pt}
+
+% So we can use external images.
+\RequirePackage{graphicx}
+% To have clickable hyper links.
+\RequirePackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}
+% Language definition
+\RequirePackage[main=english, spanish]{babel}
+\raggedright
+
+% For special symbols (like the LinkedIn)
+\RequirePackage[fixed]{fontawesome5}
+
+%\newcommand{\smallcaps}[1]{\textsc{\lowercase{#1}}}
+\newcommand{\smallcaps}[1]{\footnotesize{\textsc{#1}}}
+
+% For margins and paper size.
+\RequirePackage[letterpaper,nohead,nofoot,hmargin=1cm,vmargin=1cm]{geometry}
+% For rezising symbols.
+\RequirePackage{relsize}
+% To access color in the document.
+\RequirePackage[dvipsnames,svgnames]{xcolor}
+% For drawing.
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,shadows}
+
+\definecolor{HeaderColour}{HTML}{011f4b}
+\definecolor{RubricColour}{HTML}{03396c}
+\definecolor{SwishLineColour}{HTML}{6497b1}
+\definecolor{MarkerColour}{HTML}{005b96}
+
+% Header, rubric and subrubric customization.
+\headerscale{.4}
+%\setlength{\headerspace}{6pt}
+\rubricfont{\Large\bfseries\sffamily\color{RubricColour}}
+\setlength{\rubricspace}{2pt}
+%\setlength{\rubricafterspace}{-9pt}
+\setlength{\rubricafterspace}{-3pt}
+\setlength{\subrubricspace}{3pt}
+\setlength{\subrubricbeforespace}{4pt}
+\def\@@rubrichead#1{%
+	\begin{tikzpicture}[baseline]%\
+	\shade[left color=SwishLineColour!60!white, right color=white] rectangle (\@almosttextwidth,2.5pt);
+	\node[font={\@rubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.5ex,text height=1.5ex] at (1pt,2pt) {#1};
+	\end{tikzpicture}%
+	\vspace\rubricspace%
+}
+
+\subrubricfont{\large\bfseries\sffamily\color{RubricColour}}
+\subrubricalignment{l}
+
+\newcommand{\makefield}[2]{\makebox[1.5em]{\color{MarkerColour!80!black}#1} #2\hspace{2em}}
+\newcommand{\geomarker}[1]{{\color{MarkerColour!80!black}\faMapMarker*} #1}
+
+\keyalignment{r}
+\rubricalignment{l}
+\renewcommand{\arraystretch}{1.25}
+\urlstyle{tt}
+
+% Prefix customization.
+\newcommand{\prefixmarker}[1]{\def\@prefixmarker{#1}}
+\def\@prefixmarker{\relscale{.9}\faChevronRight}
+
+\prefix{%
+	\hspace*{-1ex}
+	\color{MarkerColour!80!black}\@prefixmarker%
+	\hspace*{1ex}%
+}
+
+\newcommand{\myprefix}[1]{%
+\prefix{%
+	\hspace*{-1ex}
+	\color{MarkerColour!80!black}\relscale{.9}#1
+	\hspace*{1ex}%
+}}
+
+\newcommand{\rangedentry}[2]{%
+\entry*[\multicolumn{1}{@{}>{\mykeyfont}p{1.5cm}}{%
+  \centerline{#2}\newline
+  \centerline{$\vert$}\newline
+  \centerline{#1}
+}]
+}
+
+\newcommand{\makerubrichead}[1]{\vskip\baselineskip\@@rubrichead{#1}}
+
+% Change color and symbol for list items (same color as other symbols, different symbol).
+%\renewcommand{\labelitemi}{\relscale{.9}\color{MarkerColour!80!black}\faBookmark[regular]}
+
+\newcommand{\achievements}[1]{%
+  \renewcommand{\labelitemi}{\relscale{.9}\color{MarkerColour!80!black}\faMedal}%
+  \begin{itemize}%
+  #1%
+  \end{itemize}%
+  \renewcommand{\labelitemi}{\textbullet}%
+}
+\newcommand{\responsabilities}[1]{%
+  \renewcommand{\labelitemi}{\relscale{.9}\color{MarkerColour!80!black}\faCheckDouble}%
+  \begin{itemize}%
+  #1%
+  \end{itemize}%
+  \renewcommand{\labelitemi}{\textbullet}%
+}
+\newcommand{\tools}[1]{%
+  \renewcommand{\labelitemi}{\relscale{.9}\color{MarkerColour!80!black}\faToolbox}%
+  \begin{itemize}%
+    \item%
+      #1%
+  \end{itemize}%
+  \renewcommand{\labelitemi}{\textbullet}%
+}
+
+\let\oldtextbf\textbf
+\renewcommand{\textbf}[1]{\textcolor{RubricColour}{\oldtextbf{#1}}}
+
+\renewcommand{\@listI}{%
+	\leftmargin=25pt
+	\rightmargin=0pt
+	\labelsep=5pt
+	\labelwidth=20pt
+	\itemindent=0pt
+	\listparindent=0pt
+	\topsep=0pt plus 2pt minus 4pt  % space before a list
+	\partopsep=0pt plus 1pt minus 1pt
+	\parsep=0pt plus 1pt
+	\itemsep=\parsep
+}

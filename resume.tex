@@ -1,0 +1,43 @@
+\documentclass[letterpaper,11pt,final]{curve}
+
+\usepackage{settings}
+
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\setmainfont[Ligatures=TeX,SmallCapsFeatures={Letters=SmallCaps,LetterSpace=5}]{Charis SIL}
+	\setsansfont[Ligatures=TeX]{Fira Sans}
+	\setmonofont{Inconsolatazi4}
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[tracking=smallcaps]{microtype}
+	\usepackage{fbb}
+	\usepackage[type1]{cabin}
+	\usepackage[varqu,varl]{zi4}
+	\useosf
+\fi
+
+\makeatletter\let\mykeyfont\@keyfont\makeatother
+
+% example values:
+% basic -- basic info
+% full -- all the info
+\newcommand{\cvtype}{full}
+
+% example values:
+% eng -- english
+% spa -- spanish
+\flavor{eng}
+
+\input{header}
+
+\begin{document}
+	\makeheaders
+	\maketitle
+
+	\makerubric{rubric/skills}
+	\makerubric{rubric/\cvtype/experience}
+	\makerubric{rubric/\cvtype/certifications}
+
+	\input{rubric/\cvtype/footer}
+\end{document}
