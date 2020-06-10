@@ -75,7 +75,7 @@ in FontAwesome, and then update in the file as follows
 
 | Command            | Current icon     | Used in                                    |
 | ------------------ | ---------------- | ------------------------------------------ |
-| `geomarker`        | `faMapMarker`    | Icon placed nex to a location.             |
+| `geomarker`        | `faMapMarker`    | Icon placed next to a location.            |
 | `prefixmarker`     | `faChevronRight` | Icon to be used for each rubric's entry.   |
 | `achievements`     | `faMedal`        | Icon used in the list of achievements.     |
 | `responsabilities` | `faCheckDouble`  | Icon used in the list of responsabilities. |
